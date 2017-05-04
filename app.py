@@ -36,12 +36,12 @@ def makeWebhookResult(req):
     result = req.get("result")
     parameters = result.get("parameters")
     departure = parameters.get("departure")
-    if departure == "":
-        d = str(today)
+    if departure is None:
+        return str(today)
 #     cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
 
 #     speech = "The cost of shipping to " + zone + " is " + str(cost[zone]) + " euros."
-    speech = "Search of tickets at" + d
+    speech = "Search of tickets at" + departure
     print("Response:")
     print(speech)
 
