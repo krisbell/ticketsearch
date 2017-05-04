@@ -38,7 +38,7 @@ def makeWebhookResult(req):
     parameters = result.get("parameters")
 #     zone = parameters.get("shipping-zone") # "shipping-zone" - название параметра
     departure = parameters.get("departure")
-    if departure == '':
+    if departure == "":
         departure = str(today)
 #     cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
 
