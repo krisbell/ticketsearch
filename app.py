@@ -31,29 +31,27 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-#     if req.get("result").get("action") != "shipping.cost":
     if req.get("result").get("action") != "one_city(destination)":
         return {}
     result = req.get("result")
     parameters = result.get("parameters")
-#     zone = parameters.get("shipping-zone") # "shipping-zone" - название параметра
     departure = parameters.get("departure")
     if departure == "":
-        departure = str(today)
+        d = str(today)
 #     cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
 
 #     speech = "The cost of shipping to " + zone + " is " + str(cost[zone]) + " euros."
-    speech = departure
-    print("Response:" идет поиск билетов)
-#     print(speech)
+    speech = "Search of tickets at" + d
+    print("Response:")
+    print(speech)
 
     return {
-        "speech": "идет поиск билетов",
-        "displayText": "идет поиск билетов",
+        "speech": "speech",
+        "displayText": "speech",
         #"data": {},
         # "contextOut": [],
 #         "source": "apiai-onlinestore-shipping"
-        "source":"agent"
+        "source":"ticketsearch"
     }
 
 
