@@ -9,7 +9,7 @@ from flask import request
 from flask import make_response
 
 from datetime import date
-today = date.today()
+datetoday = date.today()
 
 # Flask app should start in global layout
 app = Flask(__name__)
@@ -37,7 +37,7 @@ def makeWebhookResult(req):
     parameters = result.get("parameters")
     departure = parameters.get("departure")
     if departure == "":
-        d = str(today)
+        d = str(datetoday)
     else:
         d = departure
 #     cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
@@ -52,8 +52,8 @@ def makeWebhookResult(req):
         "displayText": "speech",
         #"data": {},
         # "contextOut": [],
-#         "source": "apiai-onlinestore-shipping"
-#         "source":"ticketsearch"
+#        "source": "apiai-onlinestore-shipping"
+      "source":"ticketsearch"
     }
 
 
