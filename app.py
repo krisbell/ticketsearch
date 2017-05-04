@@ -36,12 +36,14 @@ def makeWebhookResult(req):
     result = req.get("result")
     parameters = result.get("parameters")
     departure = parameters.get("departure")
-    if departure is None:
-        return str(today)
+    if departure == "":
+        d = str(today)
+    else:
+        d = departure
 #     cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
 
 #     speech = "The cost of shipping to " + zone + " is " + str(cost[zone]) + " euros."
-    speech = "Search of tickets at" + departure
+    speech = "Search of tickets at" + d
     print("Response:")
     print(speech)
 
@@ -51,7 +53,7 @@ def makeWebhookResult(req):
         #"data": {},
         # "contextOut": [],
 #         "source": "apiai-onlinestore-shipping"
-        "source":"ticketsearch"
+#         "source":"ticketsearch"
     }
 
 
